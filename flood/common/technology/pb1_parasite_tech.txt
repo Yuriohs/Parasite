@@ -21,7 +21,7 @@ tech_infection_gene = {
 }
 
 tech_parasite_breeders = {
-	cost = @tier2cost1
+	cost = @tier1cost1
 	area = society
 	tier = 1
 	category = { biology }
@@ -74,12 +74,19 @@ tech_parasite_breeders = {
 
 
 tech_parasite_growth_gene = {
-	cost = @tier1cost1
+	cost = @tier2cost1
 	area = society
 	tier = 1
 	category = { biology }
 	prerequisites = {"tech_infection_gene"}
 	weight = @tier1weight1
+	
+	gateway = biological
+	
+	feature_flags = {
+		advanced_gene_modding
+		add_advanced_traits
+	}
 	
 	## Gives more individual pop growth (may be repeatable eventually.)
 	
