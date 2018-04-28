@@ -1,0 +1,3 @@
+portraits = {
+		flood = { texturefile = "gfx/models/portraits/flood.dds"	}
+}

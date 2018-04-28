@@ -1,0 +1,192 @@
+#Parasite Breeding
+#Parasite Biology
+tech_infection_gene = {
+	cost = 0
+	area = society
+	tier = 0
+	category = { biology }
+	start_tech = yes
+	
+		potential = {
+		OR = {
+			NOT = { has_authority = auth_machine_intelligence }
+			has_civic = civic_machine_assimilator
+			has_civic = civic_machine_servitor	
+		}
+	}
+	
+	
+			has_ethic = ethic_gestalt_consciousness
+	## unlocks buildable parasite POP lvl 1
+}
+
+tech_parasite_breeders = {
+	cost = @tier2cost1
+	area = society
+	tier = 1
+	category = { biology }
+	prerequisites = {"tech_infection_gene"}
+	weight = @tier1weight1
+	
+	
+	weight_modifier = {
+		modifier = {
+			factor = 5
+			is_ai = yes
+		}	
+		modifier = {
+			factor = 2
+			months_passed > 5
+		}
+		modifier = {
+			factor = 2
+			months_passed > 10
+		}		
+		modifier = {
+			factor = 2
+			months_passed > 15
+		}		
+		modifier = {
+			factor = 2
+			months_passed > 20
+		}		
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_biology"
+			}
+		}
+	}
+		ai_weight = {
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_biology"
+			}
+		}
+	}
+	
+	
+	## unlocks the ability to build breeder buildings
+}
+
+
+tech_parasite_growth_gene = {
+	cost = @tier1cost1
+	area = society
+	tier = 1
+	category = { biology }
+	prerequisites = {"tech_infection_gene"}
+	weight = @tier1weight1
+	
+	## Gives more individual pop growth (may be repeatable eventually.)
+	
+	modifier = {
+		pop_growth_speed = 50	
+	}
+		weight_modifier = {
+		modifier = {
+				factor = 10
+				has_ethic = ethic_gestalt_consciousness
+		}
+	}
+}
+
+tech_parasite_combatform_enhancemet = {
+	cost = @tier1cost1
+	area = society
+	tier = 1 
+	category = {biology}
+	prerequisites = {"tech_parasite_growth_gene"}
+	weight = @tier1weight1
+	
+	modifier = {
+		army_damage_mult = 50
+	}
+	weight_modifier = {
+		modifier = {
+				factor = 10
+				has_ethic = ethic_gestalt_consciousness
+		}
+	}
+}
+
+tech_infestation = {
+	cost = @tier1cost1
+	area = society
+	tier = 1
+	category = { biology }
+	prerequisites = {"tech_infection_gene"}
+	weight = @tier1weight1
+	
+	
+		weight_modifier = {
+		modifier = {
+				factor = 10
+				has_ethic = ethic_gestalt_consciousness
+		}
+	}
+	
+	## tech required to get the *infestation* policy that infests non infected pops
+}
+
+#Enginnering
+tech_combat_form_gene = {
+	cost = @tier1cost1
+	area = society
+	tier = 1
+	category = { biology }
+	prerequisites = {"tech_infection_gene"}
+	weight = @tier1weight1
+	
+	
+		weight_modifier = {
+		modifier = {
+				factor = 10
+				has_ethic = ethic_gestalt_consciousness
+		}
+	}
+	
+	## Allows for parasite armies to be built.
+}
+
+tech_flood_ship_control = {
+	cost = @tier1cost1
+	area = engineering
+	tier = 1
+	category = { rocketry }
+	prerequisites = {"tech_combat_form_gene"}
+	weight = @tier1weight1
+	
+	
+		weight_modifier = {
+		modifier = {
+				factor = 10
+				has_ethic = ethic_gestalt_consciousness
+		}
+	}
+	
+	## A  (pre-tech?) controlled parasite AI controller used for custom logic for the ships
+}
+
+tech_Protomind_Transport_Control = {
+	cost = @tier1cost1
+	area = engineering
+	tier = 1
+	category = { rocketry }
+	prerequisites = {"flood_ship_control"}
+	weight = @tier1weight1
+	
+	
+		weight_modifier = {
+		modifier = {
+				factor = 10
+				has_ethic = ethic_gestalt_consciousness
+		}
+	}
+	
+	## A parasite AI controller that allows the parasite to control the transport ship
+}
+

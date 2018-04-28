@@ -1,0 +1,88 @@
+## Breeding Grounds Facility is required to increase growth
+## They also improve the output of Enslaved Pops on the planet
+building_breeding_grounds = {
+	base_buildtime = 10
+	planet_unique = yes
+	
+	cost = {
+		food = 25
+	}
+	
+	produced_resources = {
+		food = 20
+	}
+	
+	required_resources = {
+		food = 1
+	}
+	
+	planet_modifier = {
+		pop_growth_speed = 100
+	}	
+	
+	show_tech_unlock_if = { NOT = { has_authority = auth_machine_intelligence } }
+
+	potential = {
+		NOT = {
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		planet = {
+			NOT = { is_planet_class = pc_habitat }	
+		}
+	}
+
+	destroy_if = {
+		exists = owner
+		owner = { has_authority = auth_machine_intelligence }
+	}
+	
+	allow = {
+		custom_tooltip = {
+			text = "requirement_infection_gene"
+			## other critiera can go here
+		}
+		if = {
+			limit = {
+				owner = {
+					NOT = { has_authority = auth_machine_intelligence }
+				}
+			}
+		}
+		if = {
+			limit = {
+				owner = { has_authority = auth_machine_intelligence }
+			}
+		}
+	}
+	
+
+	prerequisites = {
+		"tech_infection_gene"
+	}
+	
+	ai_allow = {
+		NOR = {
+			has_resource = {
+				type = sr_betharian
+				amount > 0
+			}	
+			has_resource = {
+				type = sr_alien_pets
+				amount > 0
+			}				
+		}
+		planet = {
+			OR = {
+				has_building = building_breeding_grounds
+				count_pops = {
+					limit = { is_species_class = FLD }
+					count > 2
+				}				
+			}
+		}	
+	}
+	
+	ai_weight = {
+		weight = 10
+	}
+}

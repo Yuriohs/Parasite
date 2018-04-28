@@ -1,0 +1,42 @@
+buildable_parasite_pop_1 = {
+		
+	prerequisites = {
+		"tech_infection_gene"
+	}
+	cost = {
+		food = 10
+	}
+	
+	species = {
+	name = "PARASITE_POP_SPECIES_1"
+		name_list = "FLD"
+		class = "PARASITE"
+		portrait = "flood"
+
+		new_pop_resource_requirement = {
+			type = food 
+			value = 10
+		}
+		pops_auto_growth = 1.0
+
+		pops_can_be_colonizers = no
+		pops_can_migrate = no
+		pops_can_reproduce = yes
+		pops_can_join_factions = no
+		pop_maintenance = 0
+		pops_can_be_slaves = no
+		can_generate_leaders = yes
+		pops_have_happiness = no
+		consumer_goods = no
+		pop_ethics = no
+	}
+	
+	tile_potential = {
+		always = yes
+	}
+
+	tile_allow = {
+		always = yes
+	}
+	species = founder_species
+}
