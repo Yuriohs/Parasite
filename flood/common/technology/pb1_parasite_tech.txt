@@ -150,7 +150,7 @@ tech_parasite_combatform_enhancemet = {
 	weight = @tier1weight1
 	
 	modifier = {
-		army_damage_mult = 50
+		army_damage_mult = 100
 	}
 	weight_modifier = {
 		modifier = {

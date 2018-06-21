@@ -4,4 +4,4 @@ tags={
 	"Species"
 }
 picture="flood.jpg"
-supported_version="2.0.4"
+supported_version="2.1.1"

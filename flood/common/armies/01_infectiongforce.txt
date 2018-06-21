@@ -14,7 +14,7 @@ combat_form = {
 	prerequisites = { "tech_combat_form_gene" }
 	
 	allow = {
-		has_building = "building_Breeding_Gounds"
+		has_building = "building_breeding_grounds"
 	}
 	potential = {
 		from = {

@@ -1,7 +1,7 @@
 buildable_parasite_pop_1 = {
 		
 	prerequisites = {
-		"tech_infection_gene"
+		"tech_parasite_breeders"
 	}
 	cost = {
 		food = 10
