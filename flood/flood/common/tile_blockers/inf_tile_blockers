@@ -1,0 +1,31 @@
+tb_infestor_debris = {
+	from_planet_damage = yes
+
+	picture = tb_city_ruins
+	time = 800
+	cost = {
+		minerals = 1000
+        energy = 1000
+	}
+	
+	spawn_chance = {
+#random pop decl 1       
+		modifier = {
+           random_pop = {
+				add_trait = infected
+			}
+# OR
+
+#random pop dec 2
+            random_pop = {
+			limit = {
+				NOR = {
+					pop_has_trait = trait_robotic_1
+					pop_has_trait = trait_robotic_2
+				}
+			}
+			pop_change_trait = trait_infected
+            
+		}
+	}
+}

@@ -1,0 +1,17 @@
+FLD = {
+	archetype = BIOLOGICAL
+
+	playable = { always = yes }
+	randomized = no
+
+	gender = no	
+
+	portraits = {
+		"flood"
+		"flood01"
+		"flood02"
+	}
+	
+	graphical_culture = swarm_01
+	move_pop_sound_effect = "moving_pop_confirmation"
+}

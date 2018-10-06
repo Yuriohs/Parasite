@@ -1,0 +1,10 @@
+###Parasite Civic#######
+
+civic_hive_parasite = {
+	potential = {ethics={ value = ethic_gestalt_consciousness }}
+	random_weight = {base = 1}
+	modifier = {
+		country_core_sector_system_cap = 100
+	}
+
+}

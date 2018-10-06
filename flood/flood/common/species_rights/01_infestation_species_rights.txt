@@ -1,0 +1,25 @@
+citizenship_infestation = {
+	token = citizenship_infestation
+
+	potential = {
+		OR = {
+			host_has_dlc = "Synthetic Dawn Story Pack"
+			host_has_dlc = "Utopia"
+		}
+		exists = from
+		NOT = { from = { has_civic = civic_fanatic_purifiers } }
+		OR = {
+			from = { # non-devouring hive mind
+				AND = {
+					has_authority = auth_hive_mind
+					NOT = { has_civic = civic_hive_devouring_swarm }
+				}
+			}
+			from = {
+				has_ascension_perk = ap_evolutionary_mastery
+				NOT = { has_ethic = ethic_gestalt_consciousness }
+			}
+
+		}
+	}
+}

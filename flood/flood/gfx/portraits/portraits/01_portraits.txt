@@ -1,0 +1,5 @@
+portraits = {
+		flood = { texturefile = "gfx/models/portraits/flood.dds"	}
+		flood01 = { texturefile = "gfx/models/portraits/InfectionForm.dds"	}
+		flood02 = { texturefile = "gfx/models/portraits/CombatForm.dds"	}
+}

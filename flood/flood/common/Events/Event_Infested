@@ -1,0 +1,123 @@
+namespace = Infested
+pop_event = {
+	id = infested.1
+	hide_window = yes
+
+	# Find planet with infested trait
+	trigger = {
+		pop_has_trait = trait_infected
+		is_being_purged = no
+		is_enslaved = no
+		is_robot_pop = no
+
+		planet = {
+			any_pop = {
+				NOT = { is_same_species = ROOT }
+				NOT = { is_robot_pop = yes }
+				NOT = { has_trait = infected }			
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 20
+	}
+
+	immediate = {
+		save_event_target_as = infested_pop
+
+		planet = {
+			random_pop = {
+				limit = {
+					NOT = { is_same_species = ROOT }
+					NOT = { is_robot_pop = yes }
+					NOT = { has_trait = infected }
+				}
+				save_event_target_as = infested_pop
+			}
+		}
+		planet = {
+			if = {
+				limit = {
+					event_target:infested_pop = {
+						is_growing = yes
+					}
+				}
+				planet_event = { id = Infested.2 } # Infected Consumed
+			}
+			if = {
+				limit = {
+					event_target:infested_pop = {
+						is_growing = no
+					}
+				}
+				random_list = {
+					94 = {
+						planet_event = { id = Infested.3 } # Infected Converted
+					}
+				} # end of random list
+			} # end of if
+		} # end of planet scope
+	} # end of immediate effects
+}
+
+### Infected converted
+# ROOT is the planet infestors are on
+# FROM is infesting_pop
+# event_target:infested_pop is infested_pop
+planet_event = {
+	id = Infested.3
+	title = "Infested.3.name"
+	desc = "Infested.3.desc"
+	picture = GFX_evt_sex_crazed
+	show_sound = event_swarm_started
+	location = ROOT
+
+	is_triggered_only = yes
+
+	option = {
+		name = "OK"
+		custom_tooltip = Infested.3.tooltip
+		hidden_effect = {
+			event_target:infested_pop = { kill_pop = yes }
+			#TEST
+			random_list = {
+				50 = { 
+					create_pop = {
+						species = FROM.Species
+						ethos = FROM
+					}
+				}
+				50 = { 
+					create_pop = {
+						species = event_target: secondary_species
+						ethos = FROM
+					}
+				}
+			}
+		}
+	}
+}
+
+### Infected consumed
+# ROOT is the planet breeders are on
+# FROM is infesting_pop
+# event_target: infested_pop is infested_pop
+planet_event = {
+	id = Infested.2
+	title = "Infested.2.name"
+	desc = "Infested.2.desc"
+	picture = GFX_evt_sex_crazed2
+	show_sound = event_swarm_started
+	location = ROOT
+
+	is_triggered_only = yes
+
+	option = {
+		name = "OK"
+		custom_tooltip = Infested.2.tooltip # consumed
+		hidden_effect = {
+			event_target:Infested_pop = { kill_pop = yes }
+		}
+	}
+}

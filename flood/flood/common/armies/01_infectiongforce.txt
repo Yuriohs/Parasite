@@ -1,0 +1,32 @@
+# Flood Ground Force
+combat_form = {
+	damage = 10
+	health = 10
+	morale = 10
+	time = 20
+	maintenance = 0
+	icon_frame = 10
+	
+	cost = {
+		food = 5
+	}
+	
+	prerequisites = { "tech_combat_form_gene" }
+	
+	allow = {
+		has_building = "building_breeding_grounds"
+	}
+	potential = {
+		from = {
+			NOR = {
+				has_trait = "trait_robotic_1"
+				has_trait = "trait_robotic_2"
+				has_trait = "trait_robotic_3"
+				is_sapient = no
+			}
+		}
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}
+	}
+}
